@@ -5,10 +5,12 @@ import matplotlib as mpl
 import matplotlib.pylab as plt
 from matplotlib.ticker import MultipleLocator
 import os
+import pickle
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
 from my_tools import cal_ninoskill2, runmean
 from func_for_prediction import func_pre
+
 
 mpl.use("Agg")
 plt.rc("font", family="Arial")
@@ -72,6 +74,11 @@ for i_file in files[: file_num + 1]:
         mse[l] = mean_squared_error(aa, bb)
         mae[l] = mean_absolute_error(aa, bb)
     del aa, bb
+    results = {
+        "corr": corr,
+        "mse": mse,
+        "mae": mae,
+    }
     print("corr:", corr, type(corr))
     print("mse:", mse, type(mse))
     print("mae:", mae, type(mae))
@@ -165,6 +172,10 @@ for i_file in files[: file_num + 1]:
 
     plt.tight_layout()
 
-    plt.savefig(f"./../model/{model_name}/test_skill_{count}.png")            
+    plt.savefig(f"./../model/{model_name}/test_skill_{count}.png")  
+
+    # Save results to a pickle file
+    with open(f"../model/{model_name}/results/{model_name}_metrics_{count}.pkl", 'wb') as file:
+        pickle.dump(results, file)          
     # plt.show()
     print("*************" * 8)
