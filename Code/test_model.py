@@ -27,15 +27,26 @@ def file_name(file_dir):
 
 
 # --------------------------------------------------------
-files = file_name("./model")
+model_name = "geoformer" # "swinlstm"
+
+if model_name == "geoformer":
+    files = file_name("./../model/geoformer/")
+    mypara.lat_range = (0, 51)
+else:
+    files = file_name("./../model/swinlstm/")
+    mypara.lat_range = (0, 48)
+
 file_num = len(files)
 lead_max = mypara.output_length
 adr_datain = (
-    "./data/GODAS_group_up150_temp_tauxy_8021_kb.nc"
+    "./../data/GODAS_group_up150_temp_tauxy_8021_kb.nc"
 )
-adr_oridata = "./data/GODAS_up150m_temp_nino_tauxy_kb.nc"
+adr_oridata = "./../data/GODAS_up150m_temp_nino_tauxy_kb.nc"
 # ---------------------------------------------------------
+count = 0
 for i_file in files[: file_num + 1]:
+    print("I file:", i_file)
+    count += 1
     fig1 = plt.figure(figsize=(5, 2.5), dpi=300)
     ax1 = fig1.add_subplot(1, 2, 1)
     ax2 = fig1.add_subplot(1, 2, 2)
@@ -45,6 +56,7 @@ for i_file in files[: file_num + 1]:
         adr_datain=adr_datain,
         adr_oridata=adr_oridata,
         needtauxy=mypara.needtauxy,
+        model_name=model_name
     )
     # -----------
     cut_nino_true_jx = deepcopy(cut_nino_true[(24 - lead_max + 1) :])
@@ -60,6 +72,9 @@ for i_file in files[: file_num + 1]:
         mse[l] = mean_squared_error(aa, bb)
         mae[l] = mean_absolute_error(aa, bb)
     del aa, bb
+    print("corr:", corr, type(corr))
+    print("mse:", mse, type(mse))
+    print("mae:", mae, type(mae))
     # -------------figure---------------
     ax1.plot(corr, color="C0", linestyle="-", linewidth=1, label="Corr")
     ax1.plot(mse ** 0.5, color="C2", linestyle="-", linewidth=1, label="RMSE")
@@ -149,6 +164,7 @@ for i_file in files[: file_num + 1]:
     _ = ax2.text(x=0.02, y=11.24, s="(b)", fontsize=9)
 
     plt.tight_layout()
-    plt.savefig("./model/test_skill.png")
+
+    plt.savefig(f"./../model/{model_name}/test_skill_{count}.png")            
     # plt.show()
     print("*************" * 8)

@@ -1,0 +1,858 @@
+MASTER_PORT=44959
+{'device': device(type='cuda', index=0), 'batch_size_train': 8, 'batch_size_eval': 10, 'num_epochs': 40, 'iter_epoch': 1623, 'TFnum_epochs': 20, 'TFlr': 1.5e-05, 'early_stopping': True, 'patience': 4, 'warmup': 2000, 'adr_pretr': './../data/CMIP6_separate_model_up150m_tauxy_Nor_kb.nc', 'interval': 4, 'TraindataProportion': 0.9, 'all_group': 13000, 'adr_eval': './../data/SODA_ORAS_group_temp_tauxy_before1979_kb.nc', 'needtauxy': True, 'input_channal': 7, 'output_channal': 7, 'input_length': 12, 'output_length': 20, 'sequence_length_train': 32, 'lev_range': (1, 8), 'lon_range': (45, 165), 'lat_range': (0, 48), 'lon_nino_relative': (49, 75), 'lat_nino_relative': (15, 36), 'patch_size': (4, 4), 'H0': 16, 'W0': 30, 'emb_spatial_size': 480, 'model_savepath': './../model/geoformer/', 'model_savepath_swin': './../model/swinlstm/test/', 'seeds': 4200000, 'd_size': 256, 'nheads': 4, 'dim_feedforward': 512, 'dropout': 0.2, 'num_encoder_layers': 4, 'num_decoder_layers': 4, 'input_dim': 9, 'output_dim': 9, 'num_channels': 256, 'num_layers': 3, 'num_conditions': 0, 'num_tails': 2, 'k_conv': 7, 'loss_mode': 'parametric', 'cutout': 0.2, 'step_strided_conv': False, 'decay': True, 'decay_rate': 0.65, 'base_lr': 0.0001, 'min_lr': 1e-06, 'pct_start': 0.022727272727272728, 'div_factor': 10000000000.0, 'final_div_factor': 1, 'weight_decay': 0.05}
+
+loading pre-train dataset...
+loading tauxy...
+{'temp lev: 5.0m to 150.0m', 'lon: 92.0E to 330.0E', 'lat: -20.0S to 17.0N'}
+
+loading evaluation dataset...
+loading tauxy...
+loading tauxy...
+Random sampling...
+End of sampling...
+{'lon: 92.0E to 330.0E', 'lev: 5.0m to 150.0m', 'lat: -20.0S to 17.0N'}
+================================================================================
+
+-->epoch: 0
+
+-->batch:0 loss_var:210.86, loss_nino:34.36, score:-16.531
+
+-->batch:100 loss_var:193.21, loss_nino:32.71, score:-25.972
+
+-->batch:200 loss_var:189.26, loss_nino:30.46, score:-60.899
+
+-->batch:300 loss_var:181.97, loss_nino:28.94, score:-30.592
+
+-->batch:400 loss_var:195.04, loss_nino:37.80, score:-45.484
+
+-->batch:500 loss_var:176.72, loss_nino:32.25, score:-30.552
+
+-->batch:600 loss_var:186.06, loss_nino:37.83, score:-56.108
+
+-->batch:700 loss_var:187.49, loss_nino:33.48, score:-48.689
+
+-->batch:800 loss_var:157.11, loss_nino:20.09, score:17.203
+
+-->batch:900 loss_var:166.74, loss_nino:29.52, score:-23.302
+
+-->batch:1000 loss_var:171.17, loss_nino:25.23, score:-0.253
+
+-->batch:1100 loss_var:168.29, loss_nino:21.26, score:25.765
+
+-->batch:1200 loss_var:160.79, loss_nino:21.52, score:24.708
+
+-->batch:1300 loss_var:151.52, loss_nino:19.10, score:28.250
+
+-->batch:1400 loss_var:171.95, loss_nino:23.62, score:13.947
+
+-->batch:1500 loss_var:161.32, loss_nino:21.63, score:4.693
+
+-->batch:1600 loss_var:179.00, loss_nino:27.65, score:-1.564
+
+-->epoch0 end... 
+loss_var:183.488 
+loss_nino:23.646 
+loss_com:0.499 
+score: -6.153
+
+sc is increase from -inf to -6.153   
+saving model...
+
+================================================================================
+
+-->epoch: 1
+
+-->batch:0 loss_var:183.08, loss_nino:26.53, score:-20.323
+
+-->batch:100 loss_var:173.81, loss_nino:24.65, score:21.420
+
+-->batch:200 loss_var:185.32, loss_nino:31.13, score:20.654
+
+-->batch:300 loss_var:171.16, loss_nino:24.33, score:27.721
+
+-->batch:400 loss_var:165.27, loss_nino:28.96, score:-27.805
+
+-->batch:500 loss_var:162.03, loss_nino:20.83, score:3.228
+
+-->batch:600 loss_var:172.48, loss_nino:25.60, score:28.974
+
+-->batch:700 loss_var:158.16, loss_nino:20.01, score:37.334
+
+-->batch:800 loss_var:179.32, loss_nino:30.23, score:1.046
+
+-->batch:900 loss_var:172.98, loss_nino:27.03, score:-22.103
+
+-->batch:1000 loss_var:155.74, loss_nino:22.51, score:-9.699
+
+-->batch:1100 loss_var:163.41, loss_nino:24.61, score:-2.828
+
+-->batch:1200 loss_var:171.19, loss_nino:27.56, score:32.777
+
+-->batch:1300 loss_var:153.33, loss_nino:20.25, score:42.338
+
+-->batch:1400 loss_var:176.46, loss_nino:29.21, score:29.173
+
+-->batch:1500 loss_var:180.99, loss_nino:28.71, score:3.637
+
+-->batch:1600 loss_var:151.15, loss_nino:17.55, score:24.890
+
+-->epoch1 end... 
+loss_var:179.079 
+loss_nino:22.984 
+loss_com:0.477 
+score: -4.689
+
+sc is increase from -6.153 to -4.689   
+saving model...
+
+================================================================================
+
+-->epoch: 2
+
+-->batch:0 loss_var:151.86, loss_nino:16.86, score:23.393
+
+-->batch:100 loss_var:165.10, loss_nino:24.76, score:34.470
+
+-->batch:200 loss_var:174.44, loss_nino:25.96, score:24.344
+
+-->batch:300 loss_var:163.51, loss_nino:22.90, score:-7.638
+
+-->batch:400 loss_var:159.72, loss_nino:20.54, score:19.816
+
+-->batch:500 loss_var:156.88, loss_nino:23.98, score:29.732
+
+-->batch:600 loss_var:165.02, loss_nino:21.88, score:24.990
+
+-->batch:700 loss_var:182.66, loss_nino:28.20, score:22.246
+
+-->batch:800 loss_var:154.00, loss_nino:17.94, score:26.317
+
+-->batch:900 loss_var:168.67, loss_nino:20.45, score:41.244
+
+-->batch:1000 loss_var:154.07, loss_nino:22.82, score:25.963
+
+-->batch:1100 loss_var:167.09, loss_nino:22.81, score:49.011
+
+-->batch:1200 loss_var:154.15, loss_nino:15.65, score:39.323
+
+-->batch:1300 loss_var:157.46, loss_nino:24.12, score:13.895
+
+-->batch:1400 loss_var:157.75, loss_nino:26.54, score:-19.849
+
+-->batch:1500 loss_var:160.79, loss_nino:24.57, score:-18.102
+
+-->batch:1600 loss_var:181.13, loss_nino:32.95, score:-3.963
+
+-->epoch2 end... 
+loss_var:180.107 
+loss_nino:23.485 
+loss_com:0.479 
+score: -6.521
+
+sc is not increase for 1 epoch
+================================================================================
+
+-->epoch: 3
+
+-->batch:0 loss_var:145.34, loss_nino:16.03, score:25.787
+
+-->batch:100 loss_var:153.06, loss_nino:20.08, score:8.768
+-->Evaluation... 
+loss_var:177.950 
+loss_nino:23.250 
+loss_com:0.473 
+score:-4.541
+
+saving model...
+
+-->batch:200 loss_var:157.13, loss_nino:22.31, score:10.635
+
+-->batch:300 loss_var:162.98, loss_nino:23.84, score:14.814
+-->Evaluation... 
+loss_var:178.174 
+loss_nino:22.551 
+loss_com:0.471 
+score:-2.675
+
+saving model...
+
+-->batch:400 loss_var:164.78, loss_nino:22.90, score:19.572
+
+-->batch:500 loss_var:148.90, loss_nino:20.21, score:18.978
+-->Evaluation... 
+loss_var:176.578 
+loss_nino:22.150 
+loss_com:0.469 
+score:-2.221
+
+saving model...
+
+-->batch:600 loss_var:160.52, loss_nino:24.72, score:-17.350
+
+-->batch:700 loss_var:140.01, loss_nino:15.55, score:40.230
+-->Evaluation... 
+loss_var:177.808 
+loss_nino:23.239 
+loss_com:0.470 
+score:-5.115
+
+-->batch:800 loss_var:154.91, loss_nino:22.14, score:4.636
+
+-->batch:900 loss_var:154.91, loss_nino:21.48, score:41.091
+-->Evaluation... 
+loss_var:179.005 
+loss_nino:23.347 
+loss_com:0.473 
+score:-2.992
+
+-->batch:1000 loss_var:153.95, loss_nino:18.80, score:34.160
+
+-->batch:1100 loss_var:168.24, loss_nino:22.13, score:17.195
+-->Evaluation... 
+loss_var:178.157 
+loss_nino:23.392 
+loss_com:0.471 
+score:-5.876
+
+-->batch:1200 loss_var:171.06, loss_nino:30.87, score:2.494
+
+-->batch:1300 loss_var:159.27, loss_nino:28.47, score:26.203
+-->Evaluation... 
+loss_var:176.711 
+loss_nino:22.779 
+loss_com:0.467 
+score:-3.406
+
+-->batch:1400 loss_var:176.36, loss_nino:27.94, score:13.142
+
+-->batch:1500 loss_var:163.91, loss_nino:20.49, score:39.098
+-->Evaluation... 
+loss_var:178.933 
+loss_nino:22.950 
+loss_com:0.472 
+score:-3.751
+
+-->batch:1600 loss_var:149.54, loss_nino:18.96, score:27.976
+
+-->epoch3 end... 
+loss_var:174.633 
+loss_nino:22.110 
+loss_com:0.461 
+score: -3.934
+
+sc is not increase for 1 epoch
+================================================================================
+
+-->epoch: 4
+
+-->batch:0 loss_var:153.04, loss_nino:20.65, score:40.557
+
+-->batch:100 loss_var:162.11, loss_nino:23.21, score:10.604
+-->Evaluation... 
+loss_var:180.912 
+loss_nino:23.555 
+loss_com:0.479 
+score:-1.174
+
+saving model...
+
+-->batch:200 loss_var:146.98, loss_nino:20.71, score:26.273
+
+-->batch:300 loss_var:170.79, loss_nino:27.10, score:17.497
+-->Evaluation... 
+loss_var:177.594 
+loss_nino:22.846 
+loss_com:0.470 
+score:-2.749
+
+-->batch:400 loss_var:152.69, loss_nino:20.92, score:31.223
+
+-->batch:500 loss_var:162.03, loss_nino:25.36, score:28.769
+-->Evaluation... 
+loss_var:178.545 
+loss_nino:23.403 
+loss_com:0.471 
+score:-4.471
+
+-->batch:600 loss_var:154.83, loss_nino:19.71, score:-5.846
+
+-->batch:700 loss_var:162.38, loss_nino:22.36, score:28.035
+-->Evaluation... 
+loss_var:180.147 
+loss_nino:23.459 
+loss_com:0.475 
+score:-2.256
+
+-->batch:800 loss_var:158.39, loss_nino:21.87, score:35.164
+
+-->batch:900 loss_var:150.07, loss_nino:19.11, score:44.201
+-->Evaluation... 
+loss_var:180.166 
+loss_nino:23.750 
+loss_com:0.476 
+score:-1.381
+
+-->batch:1000 loss_var:158.66, loss_nino:19.90, score:19.709
+
+-->batch:1100 loss_var:171.43, loss_nino:25.31, score:26.636
+-->Evaluation... 
+loss_var:177.989 
+loss_nino:23.190 
+loss_com:0.469 
+score:0.113
+
+saving model...
+
+-->batch:1200 loss_var:158.79, loss_nino:23.76, score:7.069
+
+-->batch:1300 loss_var:164.84, loss_nino:20.65, score:33.888
+-->Evaluation... 
+loss_var:177.242 
+loss_nino:22.253 
+loss_com:0.466 
+score:1.827
+
+saving model...
+
+-->batch:1400 loss_var:149.39, loss_nino:15.74, score:38.605
+
+-->batch:1500 loss_var:155.30, loss_nino:19.80, score:31.003
+-->Evaluation... 
+loss_var:174.881 
+loss_nino:22.407 
+loss_com:0.460 
+score:-0.653
+
+-->batch:1600 loss_var:145.35, loss_nino:19.92, score:6.147
+
+-->epoch4 end... 
+loss_var:175.757 
+loss_nino:22.046 
+loss_com:0.463 
+score: 1.739
+
+sc is not increase for 1 epoch
+================================================================================
+
+-->epoch: 5
+
+-->batch:0 loss_var:154.18, loss_nino:23.46, score:38.890
+
+-->batch:100 loss_var:153.17, loss_nino:23.38, score:16.526
+-->Evaluation... 
+loss_var:175.642 
+loss_nino:22.784 
+loss_com:0.464 
+score:1.399
+
+-->batch:200 loss_var:161.08, loss_nino:22.18, score:16.573
+
+-->batch:300 loss_var:170.81, loss_nino:26.22, score:35.942
+-->Evaluation... 
+loss_var:179.368 
+loss_nino:23.884 
+loss_com:0.473 
+score:-3.220
+
+-->batch:400 loss_var:155.91, loss_nino:21.63, score:9.534
+
+-->batch:500 loss_var:154.90, loss_nino:19.85, score:32.061
+-->Evaluation... 
+loss_var:182.719 
+loss_nino:23.926 
+loss_com:0.482 
+score:-2.471
+
+-->batch:600 loss_var:156.53, loss_nino:23.14, score:21.024
+
+-->batch:700 loss_var:157.75, loss_nino:19.98, score:36.697
+-->Evaluation... 
+loss_var:179.459 
+loss_nino:24.412 
+loss_com:0.475 
+score:-1.169
+
+-->batch:800 loss_var:147.77, loss_nino:26.27, score:-20.066
+
+-->batch:900 loss_var:150.97, loss_nino:21.83, score:10.105
+-->Evaluation... 
+loss_var:175.640 
+loss_nino:21.618 
+loss_com:0.463 
+score:2.919
+
+saving model...
+
+-->batch:1000 loss_var:150.34, loss_nino:17.20, score:30.587
+
+-->batch:1100 loss_var:154.38, loss_nino:17.37, score:43.969
+-->Evaluation... 
+loss_var:175.185 
+loss_nino:21.461 
+loss_com:0.461 
+score:3.704
+
+saving model...
+
+-->batch:1200 loss_var:153.23, loss_nino:19.95, score:33.653
+
+-->batch:1300 loss_var:161.40, loss_nino:24.52, score:-11.149
+-->Evaluation... 
+loss_var:174.337 
+loss_nino:21.927 
+loss_com:0.458 
+score:3.652
+
+-->batch:1400 loss_var:163.25, loss_nino:25.02, score:39.600
+
+-->batch:1500 loss_var:159.89, loss_nino:25.96, score:-12.602
+-->Evaluation... 
+loss_var:175.592 
+loss_nino:22.205 
+loss_com:0.461 
+score:2.267
+
+-->batch:1600 loss_var:156.37, loss_nino:20.59, score:13.695
+
+-->epoch5 end... 
+loss_var:175.982 
+loss_nino:22.048 
+loss_com:0.463 
+score: 3.544
+
+sc is not increase for 1 epoch
+================================================================================
+
+-->epoch: 6
+
+-->batch:0 loss_var:160.14, loss_nino:20.91, score:45.005
+
+-->batch:100 loss_var:164.91, loss_nino:23.83, score:40.741
+-->Evaluation... 
+loss_var:175.530 
+loss_nino:21.819 
+loss_com:0.461 
+score:2.314
+
+-->batch:200 loss_var:152.55, loss_nino:17.84, score:48.494
+
+-->batch:300 loss_var:168.16, loss_nino:28.72, score:4.405
+-->Evaluation... 
+loss_var:175.810 
+loss_nino:22.540 
+loss_com:0.463 
+score:0.565
+
+-->batch:400 loss_var:154.73, loss_nino:21.66, score:28.224
+
+-->batch:500 loss_var:151.89, loss_nino:20.06, score:31.465
+-->Evaluation... 
+loss_var:175.139 
+loss_nino:21.860 
+loss_com:0.460 
+score:1.994
+
+-->batch:600 loss_var:143.16, loss_nino:15.97, score:36.648
+
+-->batch:700 loss_var:157.95, loss_nino:23.63, score:37.079
+-->Evaluation... 
+loss_var:175.791 
+loss_nino:21.742 
+loss_com:0.461 
+score:3.848
+
+saving model...
+
+-->batch:800 loss_var:159.23, loss_nino:19.63, score:41.540
+
+-->batch:900 loss_var:138.86, loss_nino:16.85, score:11.730
+-->Evaluation... 
+loss_var:176.092 
+loss_nino:22.374 
+loss_com:0.462 
+score:3.912
+
+saving model...
+
+-->batch:1000 loss_var:160.29, loss_nino:20.67, score:20.307
+
+-->batch:1100 loss_var:155.38, loss_nino:19.91, score:14.033
+-->Evaluation... 
+loss_var:175.597 
+loss_nino:21.665 
+loss_com:0.461 
+score:3.047
+
+-->batch:1200 loss_var:164.34, loss_nino:24.89, score:8.436
+
+-->batch:1300 loss_var:158.15, loss_nino:18.51, score:30.510
+-->Evaluation... 
+loss_var:178.071 
+loss_nino:22.094 
+loss_com:0.467 
+score:3.113
+
+-->batch:1400 loss_var:154.66, loss_nino:22.78, score:7.728
+
+-->batch:1500 loss_var:153.82, loss_nino:24.79, score:24.792
+-->Evaluation... 
+loss_var:179.796 
+loss_nino:22.864 
+loss_com:0.473 
+score:0.111
+
+-->batch:1600 loss_var:144.36, loss_nino:21.14, score:-12.965
+
+-->epoch6 end... 
+loss_var:176.977 
+loss_nino:21.750 
+loss_com:0.464 
+score: 3.188
+
+sc is not increase for 1 epoch
+================================================================================
+
+-->epoch: 7
+
+-->batch:0 loss_var:161.66, loss_nino:21.88, score:27.589
+
+-->batch:100 loss_var:164.68, loss_nino:26.65, score:31.101
+-->Evaluation... 
+loss_var:178.259 
+loss_nino:22.923 
+loss_com:0.470 
+score:0.710
+
+-->batch:200 loss_var:149.65, loss_nino:19.44, score:26.277
+
+-->batch:300 loss_var:169.74, loss_nino:24.14, score:26.275
+-->Evaluation... 
+loss_var:176.486 
+loss_nino:21.885 
+loss_com:0.462 
+score:4.496
+
+saving model...
+
+-->batch:400 loss_var:169.68, loss_nino:25.85, score:19.861
+
+-->batch:500 loss_var:145.75, loss_nino:15.55, score:31.536
+-->Evaluation... 
+loss_var:177.203 
+loss_nino:23.309 
+loss_com:0.467 
+score:0.878
+
+-->batch:600 loss_var:154.22, loss_nino:22.23, score:23.050
+
+-->batch:700 loss_var:150.93, loss_nino:19.63, score:22.060
+-->Evaluation... 
+loss_var:176.813 
+loss_nino:22.023 
+loss_com:0.463 
+score:2.746
+
+-->batch:800 loss_var:143.30, loss_nino:19.04, score:36.308
+
+-->batch:900 loss_var:172.04, loss_nino:26.65, score:23.511
+-->Evaluation... 
+loss_var:174.793 
+loss_nino:21.709 
+loss_com:0.458 
+score:3.661
+
+-->batch:1000 loss_var:150.80, loss_nino:22.38, score:-2.814
+
+-->batch:1100 loss_var:155.35, loss_nino:19.78, score:47.548
+-->Evaluation... 
+loss_var:176.099 
+loss_nino:22.098 
+loss_com:0.463 
+score:2.388
+
+-->batch:1200 loss_var:177.99, loss_nino:29.01, score:17.371
+
+-->batch:1300 loss_var:145.65, loss_nino:17.15, score:41.606
+-->Evaluation... 
+loss_var:174.921 
+loss_nino:21.815 
+loss_com:0.458 
+score:5.152
+
+saving model...
+
+-->batch:1400 loss_var:165.84, loss_nino:28.63, score:11.453
+
+-->batch:1500 loss_var:154.74, loss_nino:20.08, score:38.092
+-->Evaluation... 
+loss_var:177.493 
+loss_nino:22.446 
+loss_com:0.466 
+score:2.377
+
+-->batch:1600 loss_var:163.98, loss_nino:27.93, score:-5.479
+
+-->epoch7 end... 
+loss_var:179.949 
+loss_nino:23.764 
+loss_com:0.473 
+score: 0.023
+
+sc is not increase for 1 epoch
+================================================================================
+
+-->epoch: 8
+
+-->batch:0 loss_var:140.96, loss_nino:18.71, score:38.687
+
+-->batch:100 loss_var:144.13, loss_nino:20.80, score:21.128
+-->Evaluation... 
+loss_var:177.638 
+loss_nino:22.683 
+loss_com:0.467 
+score:1.997
+
+-->batch:200 loss_var:142.57, loss_nino:16.65, score:32.906
+
+-->batch:300 loss_var:156.33, loss_nino:19.60, score:45.566
+-->Evaluation... 
+loss_var:177.292 
+loss_nino:22.061 
+loss_com:0.464 
+score:4.888
+
+-->batch:400 loss_var:161.68, loss_nino:20.05, score:34.818
+
+-->batch:500 loss_var:160.28, loss_nino:28.08, score:10.591
+-->Evaluation... 
+loss_var:177.149 
+loss_nino:21.853 
+loss_com:0.465 
+score:3.161
+
+-->batch:600 loss_var:145.07, loss_nino:15.89, score:50.014
+
+-->batch:700 loss_var:152.37, loss_nino:16.93, score:18.339
+-->Evaluation... 
+loss_var:175.972 
+loss_nino:21.962 
+loss_com:0.462 
+score:1.866
+
+-->batch:800 loss_var:149.24, loss_nino:20.82, score:29.189
+
+-->batch:900 loss_var:143.51, loss_nino:16.66, score:34.195
+-->Evaluation... 
+loss_var:177.823 
+loss_nino:23.021 
+loss_com:0.466 
+score:0.251
+
+-->batch:1000 loss_var:150.40, loss_nino:17.85, score:38.683
+
+-->batch:1100 loss_var:156.39, loss_nino:19.76, score:22.581
+-->Evaluation... 
+loss_var:177.889 
+loss_nino:22.998 
+loss_com:0.467 
+score:0.655
+
+-->batch:1200 loss_var:156.28, loss_nino:25.02, score:23.013
+
+-->batch:1300 loss_var:152.70, loss_nino:19.09, score:20.399
+-->Evaluation... 
+loss_var:177.957 
+loss_nino:22.820 
+loss_com:0.467 
+score:-0.037
+
+-->batch:1400 loss_var:151.64, loss_nino:20.79, score:41.572
+
+-->batch:1500 loss_var:135.64, loss_nino:16.08, score:40.490
+-->Evaluation... 
+loss_var:179.684 
+loss_nino:22.626 
+loss_com:0.471 
+score:1.761
+
+-->batch:1600 loss_var:145.40, loss_nino:16.99, score:35.628
+
+-->epoch8 end... 
+loss_var:178.594 
+loss_nino:22.935 
+loss_com:0.470 
+score: 1.286
+
+sc is not increase for 2 epoch
+================================================================================
+
+-->epoch: 9
+
+-->batch:0 loss_var:164.86, loss_nino:28.57, score:30.308
+
+-->batch:100 loss_var:147.92, loss_nino:18.64, score:30.312
+-->Evaluation... 
+loss_var:182.238 
+loss_nino:25.972 
+loss_com:0.485 
+score:-3.312
+
+-->batch:200 loss_var:152.72, loss_nino:21.67, score:19.833
+
+-->batch:300 loss_var:155.05, loss_nino:23.85, score:21.755
+-->Evaluation... 
+loss_var:176.846 
+loss_nino:22.893 
+loss_com:0.462 
+score:3.425
+
+-->batch:400 loss_var:148.30, loss_nino:20.68, score:42.860
+
+-->batch:500 loss_var:152.20, loss_nino:21.89, score:22.333
+-->Evaluation... 
+loss_var:177.639 
+loss_nino:22.397 
+loss_com:0.464 
+score:4.685
+
+-->batch:600 loss_var:159.16, loss_nino:23.56, score:-1.221
+
+-->batch:700 loss_var:154.53, loss_nino:21.08, score:8.928
+-->Evaluation... 
+loss_var:177.212 
+loss_nino:21.959 
+loss_com:0.464 
+score:2.845
+
+-->batch:800 loss_var:135.59, loss_nino:14.05, score:35.364
+
+-->batch:900 loss_var:140.08, loss_nino:14.90, score:35.396
+-->Evaluation... 
+loss_var:178.378 
+loss_nino:22.550 
+loss_com:0.469 
+score:3.238
+
+-->batch:1000 loss_var:154.47, loss_nino:21.88, score:25.841
+
+-->batch:1100 loss_var:137.92, loss_nino:11.63, score:47.915
+-->Evaluation... 
+loss_var:176.839 
+loss_nino:22.639 
+loss_com:0.463 
+score:3.176
+
+-->batch:1200 loss_var:160.43, loss_nino:19.76, score:31.507
+
+-->batch:1300 loss_var:150.23, loss_nino:20.40, score:39.930
+-->Evaluation... 
+loss_var:176.175 
+loss_nino:22.279 
+loss_com:0.461 
+score:3.220
+
+-->batch:1400 loss_var:162.90, loss_nino:25.56, score:27.125
+
+-->batch:1500 loss_var:140.96, loss_nino:15.76, score:32.138
+-->Evaluation... 
+loss_var:175.611 
+loss_nino:21.978 
+loss_com:0.460 
+score:3.050
+
+-->batch:1600 loss_var:141.20, loss_nino:13.53, score:39.078
+
+-->epoch9 end... 
+loss_var:180.770 
+loss_nino:22.773 
+loss_com:0.474 
+score: 3.190
+
+sc is not increase for 3 epoch
+================================================================================
+
+-->epoch: 10
+
+-->batch:0 loss_var:145.52, loss_nino:15.71, score:34.480
+
+-->batch:100 loss_var:156.33, loss_nino:25.74, score:14.933
+-->Evaluation... 
+loss_var:181.358 
+loss_nino:22.399 
+loss_com:0.476 
+score:3.489
+
+-->batch:200 loss_var:143.24, loss_nino:17.03, score:42.153
+
+-->batch:300 loss_var:140.41, loss_nino:18.61, score:10.671
+-->Evaluation... 
+loss_var:178.793 
+loss_nino:22.563 
+loss_com:0.469 
+score:2.121
+
+-->batch:400 loss_var:150.90, loss_nino:21.11, score:38.050
+
+-->batch:500 loss_var:150.76, loss_nino:21.45, score:16.290
+-->Evaluation... 
+loss_var:178.502 
+loss_nino:22.719 
+loss_com:0.468 
+score:1.671
+
+-->batch:600 loss_var:145.56, loss_nino:18.67, score:30.262
+
+-->batch:700 loss_var:157.85, loss_nino:21.65, score:36.848
+-->Evaluation... 
+loss_var:178.528 
+loss_nino:22.787 
+loss_com:0.468 
+score:3.642
+
+-->batch:800 loss_var:141.93, loss_nino:18.75, score:24.468
+
+-->batch:900 loss_var:160.80, loss_nino:23.34, score:-9.932
+-->Evaluation... 
+loss_var:175.861 
+loss_nino:22.429 
+loss_com:0.462 
+score:1.640
+
+-->batch:1000 loss_var:138.76, loss_nino:15.56, score:42.865
+
+-->batch:1100 loss_var:151.65, loss_nino:25.71, score:20.880
+-->Evaluation... 
+loss_var:179.501 
+loss_nino:22.610 
+loss_com:0.469 
+score:4.470
+
+-->batch:1200 loss_var:168.97, loss_nino:24.53, score:33.444
+
+-->batch:1300 loss_var:160.32, loss_nino:21.00, score:27.230
+-->Evaluation... 
+loss_var:176.511 
+loss_nino:22.175 
+loss_com:0.463 
+score:2.679
+
+-->batch:1400 loss_var:145.07, loss_nino:16.41, score:43.275
+
+-->batch:1500 loss_var:161.23, loss_nino:23.85, score:13.078
+-->Evaluation... 
+loss_var:179.386 
+loss_nino:23.477 
+loss_com:0.472 
+score:1.364
+
+-->batch:1600 loss_var:155.97, loss_nino:21.59, score:33.386
+
+-->epoch10 end... 
+loss_var:175.476 
+loss_nino:21.572 
+loss_com:0.460 
+score: 4.256
+
+sc is not increase for 4 epoch
+
+-----!!!early stopping reached, max(sceval)= 5.151946!!!-----

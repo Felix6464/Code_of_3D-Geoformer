@@ -1,0 +1,46 @@
+MASTER_PORT=47635
+{'device': device(type='cuda', index=0), 'batch_size_train': 8, 'batch_size_eval': 10, 'num_epochs': 40, 'iter_epoch': 1623, 'TFnum_epochs': 20, 'TFlr': 1.5e-05, 'early_stopping': True, 'patience': 4, 'warmup': 2000, 'adr_pretr': './../data/CMIP6_separate_model_up150m_tauxy_Nor_kb.nc', 'interval': 4, 'TraindataProportion': 0.9, 'all_group': 13000, 'adr_eval': './../data/SODA_ORAS_group_temp_tauxy_before1979_kb.nc', 'needtauxy': True, 'input_channal': 7, 'output_channal': 7, 'input_length': 12, 'output_length': 20, 'sequence_length_train': 32, 'lev_range': (1, 8), 'lon_range': (45, 165), 'lat_range': (0, 48), 'lon_nino_relative': (49, 75), 'lat_nino_relative': (15, 36), 'patch_size': (4, 4), 'H0': 16, 'W0': 30, 'emb_spatial_size': 480, 'model_savepath': './../model/geoformer/', 'model_savepath_swin': './../model/swinlstm/test/', 'seeds': 42000000, 'd_size': 256, 'nheads': 4, 'dim_feedforward': 512, 'dropout': 0.2, 'num_encoder_layers': 4, 'num_decoder_layers': 4, 'input_dim': 9, 'output_dim': 9, 'num_channels': 256, 'num_layers': 3, 'num_conditions': 0, 'num_tails': 2, 'k_conv': 7, 'loss_mode': 'parametric', 'cutout': 0.2, 'step_strided_conv': False, 'decay': True, 'decay_rate': 0.65, 'base_lr': 0.0001, 'min_lr': 1e-06, 'pct_start': 0.022727272727272728, 'div_factor': 10000000000.0, 'final_div_factor': 1, 'weight_decay': 0.05}
+
+loading pre-train dataset...
+loading tauxy...
+{'lon: 92.0E to 330.0E', 'lat: -20.0S to 17.0N', 'temp lev: 5.0m to 150.0m'}
+
+loading evaluation dataset...
+loading tauxy...
+loading tauxy...
+Random sampling...
+End of sampling...
+{'lon: 92.0E to 330.0E', 'lev: 5.0m to 150.0m', 'lat: -20.0S to 17.0N'}
+================================================================================
+
+-->epoch: 0
+Traceback (most recent call last):
+  File "/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/slurm/../Code/trainer_2.py", line 269, in <module>
+    trainer.train_model(
+  File "/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/slurm/../Code/trainer_2.py", line 163, in train_model
+    var_pred = self.mymodel(
+               ^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/Code/Geoformer.py", line 64, in forward
+    en_out = self.encode(predictor=predictor, in_mask=in_mask)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/Code/Geoformer.py", line 120, in encode
+    predictor = self.predictor_emb(predictor)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/Code/my_tools.py", line 76, in forward
+    x = self.linear(x) + self.pe_time[:, :, : x.size(2)] + embedded_space
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (360) must match the size of tensor b (480) at non-singleton dimension 1
+srun: error: galvani-cn207: task 0: Exited with exit code 1
+srun: Terminating StepId=1154949.0

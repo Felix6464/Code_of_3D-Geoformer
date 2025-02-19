@@ -1,0 +1,27 @@
+MASTER_PORT=44012
+{'device': device(type='cuda', index=0), 'batch_size_train': 8, 'batch_size_eval': 10, 'num_epochs': 40, 'iter_epoch': 5603, 'TFnum_epochs': 20, 'TFlr': 1.5e-05, 'early_stopping': True, 'patience': 4, 'warmup': 2000, 'adr_pretr': './../data/CMIP6_separate_model_up150m_tauxy_Nor_kb.nc', 'interval': 4, 'TraindataProportion': 0.9, 'all_group': 13000, 'adr_eval': './../data/SODA_ORAS_group_temp_tauxy_before1979_kb.nc', 'needtauxy': True, 'input_channal': 7, 'output_channal': 7, 'input_length': 12, 'output_length': 20, 'lev_range': (1, 8), 'lon_range': (45, 165), 'lat_range': (0, 48), 'lon_nino_relative': (49, 75), 'lat_nino_relative': (15, 36), 'patch_size': (4, 4), 'H0': 16, 'W0': 30, 'emb_spatial_size': 480, 'model_savepath': './../model/geoformer/', 'model_savepath_swin': './../model/swinlstm/test/', 'seeds': 42, 'd_size': 256, 'nheads': 4, 'dim_feedforward': 512, 'dropout': 0.2, 'num_encoder_layers': 4, 'num_decoder_layers': 4, 'input_dim': 9, 'output_dim': 9, 'num_channels': 256, 'num_layers': 3, 'num_conditions': 0, 'num_tails': 2, 'k_conv': 7, 'loss_mode': 'parametric', 'cutout': 0.2, 'step_strided_conv': False, 'decay_rate': 0.65, 'base_lr': 0.0001, 'min_lr': 1e-06, 'pct_start': 0.022727272727272728, 'div_factor': 10000000000.0, 'final_div_factor': 1, 'weight_decay': 0.05}
+
+loading pre-train dataset...
+loading tauxy...
+{'lat: -20.0S to 17.0N', 'lon: 92.0E to 330.0E', 'temp lev: 5.0m to 150.0m'}
+
+loading evaluation dataset...
+loading tauxy...
+loading tauxy...
+Random sampling...
+End of sampling...
+{'lat: -20.0S to 17.0N', 'lon: 92.0E to 330.0E', 'lev: 5.0m to 150.0m'}
+================================================================================
+
+-->epoch: 0
+j:  0
+Traceback (most recent call last):
+  File "/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/slurm/../Code/trainer_swinlstm.py", line 396, in <module>
+    mypara,
+^^^^^^^^^^^
+  File "/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/slurm/../Code/trainer_swinlstm.py", line 306, in train_model
+    # loss_var.backward()
+                   ^^^^^^^
+RuntimeError: a Tensor with 8294400 elements cannot be converted to Scalar
+srun: error: galvani-cn218: task 0: Exited with exit code 1
+srun: Terminating StepId=1154617.0

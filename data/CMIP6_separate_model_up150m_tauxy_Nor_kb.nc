@@ -1,0 +1,1 @@
+/mnt/qb/goswami/data/zhou_data/CMIP6_separate_model_up150m_tauxy_Nor_kb.nc

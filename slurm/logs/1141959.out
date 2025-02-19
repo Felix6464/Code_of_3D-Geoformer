@@ -1,0 +1,6 @@
+MASTER_PORT=23162
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 1141959 ON galvani-cn213 CANCELLED AT 2025-02-11T18:05:18 ***
+slurmstepd: error: *** STEP 1141959.0 ON galvani-cn213 CANCELLED AT 2025-02-11T18:05:19 ***
+srun: error: galvani-cn213: task 0: Terminated
+srun: Terminating StepId=1141959.0

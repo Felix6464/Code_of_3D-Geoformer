@@ -1,0 +1,4 @@
+MASTER_PORT=15369
+/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/bin/python: can't open file '/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/slurm/../trainer_2.py': [Errno 2] No such file or directory
+srun: error: galvani-cn218: task 0: Exited with exit code 2
+srun: Terminating StepId=1140859.0

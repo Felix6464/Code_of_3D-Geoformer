@@ -133,7 +133,7 @@ class modelTrainer:
         )
 
     def train_model(self, dataset_train, dataset_eval):
-        chk_path = self.mypara.model_savepath + "Geoformer.pkl"
+        chk_path = self.mypara.model_savepath + f"Geoformer_s{self.mypara.seeds}.pkl"
         torch.manual_seed(self.mypara.seeds)
         dataloader_train = DataLoader(
             dataset_train, batch_size=self.mypara.batch_size_train, shuffle=False

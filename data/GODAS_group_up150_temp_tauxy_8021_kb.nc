@@ -1,0 +1,1 @@
+/mnt/qb/goswami/data/zhou_data/GODAS_group_up150_temp_tauxy_8021_kb.nc

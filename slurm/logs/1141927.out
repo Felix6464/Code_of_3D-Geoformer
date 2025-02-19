@@ -1,0 +1,4 @@
+MASTER_PORT=43774
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 1141927 ON galvani-cn218 CANCELLED AT 2025-02-11T18:05:10 ***
+slurmstepd: error: *** STEP 1141927.0 ON galvani-cn218 CANCELLED AT 2025-02-11T18:05:10 ***

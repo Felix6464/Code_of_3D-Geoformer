@@ -1,0 +1,298 @@
+MASTER_PORT=59395
+{'device': device(type='cuda', index=0), 'batch_size_train': 8, 'batch_size_eval': 10, 'num_epochs': 40, 'TFnum_epochs': 20, 'TFlr': 1.5e-05, 'early_stopping': True, 'patience': 4, 'warmup': 2000, 'adr_pretr': './../data/CMIP6_separate_model_up150m_tauxy_Nor_kb.nc', 'interval': 4, 'TraindataProportion': 0.9, 'all_group': 13000, 'adr_eval': './../data/SODA_ORAS_group_temp_tauxy_before1979_kb.nc', 'needtauxy': True, 'input_channal': 7, 'output_channal': 7, 'input_length': 12, 'output_length': 20, 'lev_range': (1, 8), 'lon_range': (45, 165), 'lat_range': (0, 51), 'lon_nino_relative': (49, 75), 'lat_nino_relative': (15, 36), 'patch_size': (3, 4), 'H0': 17, 'W0': 30, 'emb_spatial_size': 510, 'model_savepath': './../model/', 'seeds': 1, 'd_size': 256, 'nheads': 4, 'dim_feedforward': 512, 'dropout': 0.2, 'num_encoder_layers': 4, 'num_decoder_layers': 4}
+
+loading pre-train dataset...
+loading tauxy...
+{'lon: 92.0E to 330.0E', 'lat: -20.0S to 20.0N', 'temp lev: 5.0m to 150.0m'}
+
+loading evaluation dataset...
+loading tauxy...
+loading tauxy...
+Random sampling...
+End of sampling...
+{'lev: 5.0m to 150.0m', 'lon: 92.0E to 330.0E', 'lat: -20.0S to 20.0N'}
+================================================================================
+
+-->epoch: 0
+
+-->batch:0 loss_var:204.27, loss_nino:27.27, score:-73.593
+
+-->batch:100 loss_var:169.82, loss_nino:23.49, score:47.569
+
+-->batch:200 loss_var:130.19, loss_nino:8.30, score:65.807
+
+-->batch:300 loss_var:131.23, loss_nino:7.40, score:66.222
+
+-->batch:400 loss_var:132.13, loss_nino:10.51, score:62.721
+
+-->batch:500 loss_var:128.32, loss_nino:9.89, score:61.527
+
+-->batch:600 loss_var:124.17, loss_nino:9.17, score:62.468
+
+-->batch:700 loss_var:137.22, loss_nino:12.28, score:61.258
+
+-->batch:800 loss_var:126.72, loss_nino:9.40, score:64.307
+
+-->batch:900 loss_var:119.59, loss_nino:7.47, score:66.205
+
+-->batch:1000 loss_var:117.17, loss_nino:7.82, score:64.004
+
+-->batch:1100 loss_var:121.07, loss_nino:8.53, score:63.943
+
+-->batch:1200 loss_var:116.22, loss_nino:7.21, score:66.331
+
+-->batch:1300 loss_var:127.68, loss_nino:8.83, score:65.145
+
+-->batch:1400 loss_var:128.40, loss_nino:11.48, score:59.716
+
+-->batch:1500 loss_var:119.05, loss_nino:9.36, score:64.029
+
+-->batch:1600 loss_var:114.44, loss_nino:8.52, score:61.059
+
+-->epoch0 end... 
+loss_var:195.823 
+loss_nino:31.084 
+loss_com:226.907 
+score: -17.554
+
+sc is increase from -inf to -17.554   
+saving model...
+
+================================================================================
+
+-->epoch: 1
+
+-->batch:0 loss_var:118.11, loss_nino:8.22, score:64.562
+
+-->batch:100 loss_var:119.77, loss_nino:7.52, score:65.968
+
+-->batch:200 loss_var:114.64, loss_nino:8.05, score:61.513
+
+-->batch:300 loss_var:125.35, loss_nino:12.51, score:55.314
+
+-->batch:400 loss_var:112.11, loss_nino:7.23, score:65.155
+
+-->batch:500 loss_var:119.60, loss_nino:9.82, score:59.536
+
+-->batch:600 loss_var:116.99, loss_nino:8.87, score:63.481
+
+-->batch:700 loss_var:125.97, loss_nino:11.32, score:62.534
+
+-->batch:800 loss_var:121.32, loss_nino:10.84, score:62.691
+
+-->batch:900 loss_var:116.79, loss_nino:8.18, score:64.682
+
+-->batch:1000 loss_var:116.47, loss_nino:8.06, score:62.967
+
+-->batch:1100 loss_var:114.96, loss_nino:8.26, score:65.237
+
+-->batch:1200 loss_var:118.51, loss_nino:9.29, score:63.912
+
+-->batch:1300 loss_var:128.28, loss_nino:9.37, score:60.636
+
+-->batch:1400 loss_var:115.82, loss_nino:8.86, score:63.550
+
+-->batch:1500 loss_var:113.00, loss_nino:6.85, score:64.976
+
+-->batch:1600 loss_var:128.40, loss_nino:8.77, score:63.866
+
+-->epoch1 end... 
+loss_var:200.786 
+loss_nino:37.354 
+loss_com:238.140 
+score: -28.204
+
+sc is not increase for 1 epoch
+================================================================================
+
+-->epoch: 2
+
+-->batch:0 loss_var:126.92, loss_nino:9.61, score:63.412
+
+-->batch:100 loss_var:116.22, loss_nino:8.14, score:65.333
+
+-->batch:200 loss_var:121.85, loss_nino:11.30, score:52.193
+
+-->batch:300 loss_var:119.73, loss_nino:10.62, score:62.585
+
+-->batch:400 loss_var:119.40, loss_nino:8.04, score:66.243
+
+-->batch:500 loss_var:112.18, loss_nino:8.72, score:64.413
+
+-->batch:600 loss_var:115.40, loss_nino:10.41, score:60.021
+
+-->batch:700 loss_var:119.68, loss_nino:10.04, score:60.176
+
+-->batch:800 loss_var:129.61, loss_nino:10.31, score:62.947
+
+-->batch:900 loss_var:117.51, loss_nino:9.21, score:61.029
+
+-->batch:1000 loss_var:113.78, loss_nino:9.92, score:57.123
+
+-->batch:1100 loss_var:126.88, loss_nino:8.93, score:63.516
+
+-->batch:1200 loss_var:123.48, loss_nino:8.45, score:62.610
+
+-->batch:1300 loss_var:122.82, loss_nino:9.62, score:63.655
+
+-->batch:1400 loss_var:126.27, loss_nino:9.65, score:63.455
+
+-->batch:1500 loss_var:122.19, loss_nino:9.39, score:62.073
+
+-->batch:1600 loss_var:124.79, loss_nino:9.62, score:63.946
+
+-->epoch2 end... 
+loss_var:188.438 
+loss_nino:26.906 
+loss_com:215.344 
+score: -18.020
+
+sc is not increase for 2 epoch
+================================================================================
+
+-->epoch: 3
+
+-->batch:0 loss_var:125.60, loss_nino:9.02, score:62.499
+
+-->batch:100 loss_var:119.69, loss_nino:9.29, score:62.455
+-->Evaluation... 
+loss_var:175.252 
+loss_nino:23.237 
+loss_com:198.489 
+score:-5.494
+
+saving model...
+
+-->batch:200 loss_var:120.16, loss_nino:8.74, score:64.472
+
+-->batch:300 loss_var:107.46, loss_nino:7.69, score:66.030
+-->Evaluation... 
+loss_var:177.376 
+loss_nino:23.712 
+loss_com:201.087 
+score:-5.614
+
+-->batch:400 loss_var:116.79, loss_nino:7.43, score:64.919
+
+-->batch:500 loss_var:110.93, loss_nino:9.92, score:63.732
+-->Evaluation... 
+loss_var:199.017 
+loss_nino:32.451 
+loss_com:231.468 
+score:-16.248
+
+-->batch:600 loss_var:106.75, loss_nino:7.54, score:65.347
+
+-->batch:700 loss_var:121.20, loss_nino:8.11, score:64.118
+-->Evaluation... 
+loss_var:178.792 
+loss_nino:26.194 
+loss_com:204.986 
+score:-8.107
+
+-->batch:800 loss_var:117.26, loss_nino:8.34, score:64.698
+
+-->batch:900 loss_var:109.90, loss_nino:9.12, score:63.991
+-->Evaluation... 
+loss_var:179.205 
+loss_nino:23.299 
+loss_com:202.504 
+score:-2.881
+
+saving model...
+
+-->batch:1000 loss_var:107.04, loss_nino:7.07, score:67.344
+
+-->batch:1100 loss_var:112.43, loss_nino:8.39, score:61.811
+-->Evaluation... 
+loss_var:191.250 
+loss_nino:30.656 
+loss_com:221.907 
+score:-11.700
+
+-->batch:1200 loss_var:121.81, loss_nino:9.80, score:61.760
+
+-->batch:1300 loss_var:116.53, loss_nino:9.31, score:64.560
+-->Evaluation... 
+loss_var:182.766 
+loss_nino:23.108 
+loss_com:205.875 
+score:-0.057
+
+saving model...
+
+-->batch:1400 loss_var:114.46, loss_nino:7.34, score:65.257
+
+-->batch:1500 loss_var:117.06, loss_nino:8.50, score:66.023
+-->Evaluation... 
+loss_var:176.020 
+loss_nino:24.643 
+loss_com:200.663 
+score:-3.303
+
+-->batch:1600 loss_var:113.95, loss_nino:8.93, score:62.475
+
+-->epoch3 end... 
+loss_var:181.738 
+loss_nino:27.075 
+loss_com:208.813 
+score: -13.908
+
+sc is not increase for 1 epoch
+================================================================================
+
+-->epoch: 4
+
+-->batch:0 loss_var:120.36, loss_nino:8.77, score:61.441
+
+-->batch:100 loss_var:112.46, loss_nino:9.85, score:62.995
+-->Evaluation... 
+loss_var:195.652 
+loss_nino:32.844 
+loss_com:228.496 
+score:-18.423
+
+-->batch:200 loss_var:123.25, loss_nino:10.03, score:61.852
+
+-->batch:300 loss_var:108.51, loss_nino:8.17, score:65.502
+-->Evaluation... 
+loss_var:182.922 
+loss_nino:26.657 
+loss_com:209.579 
+score:-11.703
+
+-->batch:400 loss_var:114.65, loss_nino:9.30, score:63.131
+
+-->batch:500 loss_var:119.41, loss_nino:9.06, score:63.646
+-->Evaluation... 
+loss_var:187.162 
+loss_nino:27.907 
+loss_com:215.069 
+score:-6.050
+
+-->batch:600 loss_var:119.09, loss_nino:8.51, score:63.526
+
+-->batch:700 loss_var:114.04, loss_nino:8.78, score:62.452
+-->Evaluation... 
+loss_var:189.614 
+loss_nino:28.401 
+loss_com:218.015 
+score:-8.252
+
+-->batch:800 loss_var:112.25, loss_nino:7.96, score:62.786
+
+-->batch:900 loss_var:110.97, loss_nino:8.02, score:65.435
+-->Evaluation... 
+loss_var:181.699 
+loss_nino:25.870 
+loss_com:207.569 
+score:0.299
+
+saving model...
+
+-->batch:1000 loss_var:113.48, loss_nino:8.46, score:64.848
+
+-->batch:1100 loss_var:116.92, loss_nino:9.34, score:62.261
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 1141832 ON galvani-cn201 CANCELLED AT 2025-02-11T18:15:48 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 1141832.0 ON galvani-cn201 CANCELLED AT 2025-02-11T18:15:48 DUE TO TIME LIMIT ***

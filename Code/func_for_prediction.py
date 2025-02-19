@@ -1,9 +1,12 @@
 from Geoformer import Geoformer
+import swinlstm
+
 import torch
 from torch.utils.data import DataLoader
 import numpy as np
 import xarray as xr
 from torch.utils.data import Dataset
+import einops
 
 
 class make_dataset_test(Dataset):
@@ -85,7 +88,8 @@ class make_dataset_test(Dataset):
         return self.dataX[idx]
 
 
-def func_pre(mypara, adr_model, adr_datain, adr_oridata, needtauxy):
+def func_pre(mypara, adr_model, adr_datain, adr_oridata, needtauxy, model_name):
+    print("My para lat range:", mypara.lat_range)
     lead_max = mypara.output_length
     # -------------
     data_ori = xr.open_dataset(adr_oridata)
@@ -140,8 +144,23 @@ def func_pre(mypara, adr_model, adr_datain, adr_oridata, needtauxy):
     dataloader_test = DataLoader(
         dataCS, batch_size=mypara.batch_size_eval, shuffle=False
     )
-    mymodel = Geoformer(mypara).to(mypara.device)
-    mymodel.load_state_dict(torch.load(adr_model))
+    if model_name == "geoformer":
+        mymodel = Geoformer(mypara).to(mypara.device)
+        mymodel.load_state_dict(torch.load(adr_model))
+    else:
+        mymodel = swinlstm.SwinLSTMNet(
+            input_dim = mypara.input_dim, 
+            output_dim= mypara.output_dim,
+            num_channels=mypara.num_channels,
+            num_layers= mypara.num_layers,
+            patch_size=mypara.patch_size_swin,
+            num_tails= mypara.num_tails,
+            k_conv=mypara.k_conv,
+            num_conditions= mypara.num_conditions,
+            cutout=mypara.cutout,
+            step_strided_conv=mypara.step_strided_conv,
+        ).to(mypara.device)
+        mymodel.load_state_dict(torch.load(adr_model))
     mymodel.eval()
     if needtauxy:
         n_lev = mypara.lev_range[1] - mypara.lev_range[0] + 2
@@ -162,11 +181,20 @@ def func_pre(mypara, adr_model, adr_datain, adr_oridata, needtauxy):
     iii = 0
     with torch.no_grad():
         for input_var in dataloader_test:
-            out_var = mymodel(
-                input_var.float().to(mypara.device),
-                predictand=None,
-                train=False,
-            )
+            input_var = einops.rearrange(input_var, 'b c t h w -> b t c h w') if model_name == "swinlstm" else input_var
+            if model_name == "geoformer":
+                out_var = mymodel(
+                    input_var.float().to(mypara.device),
+                    predictand=None,
+                    train=False,
+                )
+            else:
+                out_var = mymodel(
+                    input_var.float().to(mypara.device),
+                    mypara.output_length,
+                )
+            out_var = einops.rearrange(out_var[:, 0], 'b t c h w -> b c t h w') if model_name == "swinlstm" else out_var
+
             ii += out_var.shape[0]
             if torch.cuda.is_available():
                 var_pred[iii:ii] = out_var.cpu().detach().numpy()

@@ -1,0 +1,53 @@
+MASTER_PORT=21131
+{'device': device(type='cuda', index=0), 'batch_size_train': 8, 'batch_size_eval': 10, 'num_epochs': 40, 'TFnum_epochs': 20, 'TFlr': 1.5e-05, 'early_stopping': True, 'patience': 4, 'warmup': 2000, 'adr_pretr': './data/up150_tauxy/CMIP6_separate_model_up150m_tauxy_Nor_kb.nc', 'interval': 4, 'TraindataProportion': 0.9, 'all_group': 13000, 'adr_eval': './data/up150_tauxy/SODA_ORAS_group_temp_tauxy_before1979_kb.nc', 'needtauxy': True, 'input_channal': 7, 'output_channal': 7, 'input_length': 12, 'output_length': 20, 'lev_range': (1, 8), 'lon_range': (45, 165), 'lat_range': (0, 51), 'lon_nino_relative': (49, 75), 'lat_nino_relative': (15, 36), 'patch_size': (3, 4), 'H0': 17, 'W0': 30, 'emb_spatial_size': 510, 'model_savepath': './model/', 'seeds': 1, 'd_size': 256, 'nheads': 4, 'dim_feedforward': 512, 'dropout': 0.2, 'num_encoder_layers': 4, 'num_decoder_layers': 4}
+
+loading pre-train dataset...
+Traceback (most recent call last):
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/xarray/backends/file_manager.py", line 211, in _acquire_with_cache_info
+    file = self._cache[self._key]
+           ~~~~~~~~~~~^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/xarray/backends/lru_cache.py", line 56, in __getitem__
+    value = self._cache[key]
+            ~~~~~~~~~~~^^^^^
+KeyError: [<class 'netCDF4._netCDF4.Dataset'>, ('/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/slurm/data/up150_tauxy/CMIP6_separate_model_up150m_tauxy_Nor_kb.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '2c8341dc-6285-4d92-88d0-55512bea47d7']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/slurm/../Code/trainer_2.py", line 259, in <module>
+    traindataset = make_dataset2(mypara)
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/Code/LoadData.py", line 139, in __init__
+    data_in = xr.open_dataset(mypara.adr_pretr)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/xarray/backends/api.py", line 573, in open_dataset
+    backend_ds = backend.open_dataset(
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/xarray/backends/netCDF4_.py", line 646, in open_dataset
+    store = NetCDF4DataStore.open(
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/xarray/backends/netCDF4_.py", line 409, in open
+    return cls(manager, group=group, mode=mode, lock=lock, autoclose=autoclose)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/xarray/backends/netCDF4_.py", line 356, in __init__
+    self.format = self.ds.data_model
+                  ^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/xarray/backends/netCDF4_.py", line 418, in ds
+    return self._acquire()
+           ^^^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/xarray/backends/netCDF4_.py", line 412, in _acquire
+    with self._manager.acquire_context(needs_lock) as root:
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/xarray/backends/file_manager.py", line 199, in acquire_context
+    file, cached = self._acquire_with_cache_info(needs_lock)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/xarray/backends/file_manager.py", line 217, in _acquire_with_cache_info
+    file = self._opener(*self._args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/netCDF4/_netCDF4.pyx", line 2469, in netCDF4._netCDF4.Dataset.__init__
+  File "src/netCDF4/_netCDF4.pyx", line 2028, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/slurm/data/up150_tauxy/CMIP6_separate_model_up150m_tauxy_Nor_kb.nc'
+srun: error: galvani-cn213: task 0: Exited with exit code 1
+srun: Terminating StepId=1141178.0

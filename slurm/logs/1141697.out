@@ -1,0 +1,77 @@
+MASTER_PORT=58788
+{'device': device(type='cuda', index=0), 'batch_size_train': 8, 'batch_size_eval': 10, 'num_epochs': 40, 'TFnum_epochs': 20, 'TFlr': 1.5e-05, 'early_stopping': True, 'patience': 4, 'warmup': 2000, 'adr_pretr': './../data/CMIP6_separate_model_up150m_tauxy_Nor_kb.nc', 'interval': 4, 'TraindataProportion': 0.9, 'all_group': 13000, 'adr_eval': './../data/SODA_ORAS_group_temp_tauxy_before1979_kb.nc', 'needtauxy': True, 'input_channal': 7, 'output_channal': 7, 'input_length': 12, 'output_length': 20, 'lev_range': (1, 8), 'lon_range': (45, 165), 'lat_range': (0, 51), 'lon_nino_relative': (49, 75), 'lat_nino_relative': (15, 36), 'patch_size': (3, 4), 'H0': 17, 'W0': 30, 'emb_spatial_size': 510, 'model_savepath': './../model/', 'seeds': 1, 'd_size': 256, 'nheads': 4, 'dim_feedforward': 512, 'dropout': 0.2, 'num_encoder_layers': 4, 'num_decoder_layers': 4}
+
+loading pre-train dataset...
+loading tauxy...
+{'lat: -20.0S to 20.0N', 'temp lev: 5.0m to 150.0m', 'lon: 92.0E to 330.0E'}
+
+loading evaluation dataset...
+loading tauxy...
+loading tauxy...
+Random sampling...
+End of sampling...
+{'lat: -20.0S to 20.0N', 'lev: 5.0m to 150.0m', 'lon: 92.0E to 330.0E'}
+================================================================================
+
+-->epoch: 0
+
+-->batch:0 loss_var:233.96, loss_nino:40.18, score:-6.532
+
+-->batch:100 loss_var:145.86, loss_nino:10.29, score:58.293
+
+-->batch:200 loss_var:136.67, loss_nino:11.52, score:60.489
+
+-->batch:300 loss_var:129.96, loss_nino:9.22, score:64.969
+
+-->batch:400 loss_var:126.13, loss_nino:8.99, score:65.248
+
+-->batch:500 loss_var:125.62, loss_nino:10.62, score:61.348
+
+-->batch:600 loss_var:136.27, loss_nino:10.50, score:60.721
+
+-->batch:700 loss_var:134.95, loss_nino:11.79, score:61.331
+
+-->batch:800 loss_var:118.81, loss_nino:7.00, score:67.164
+
+-->batch:900 loss_var:125.77, loss_nino:10.23, score:62.302
+
+-->batch:1000 loss_var:119.30, loss_nino:8.03, score:65.727
+
+-->batch:1100 loss_var:118.43, loss_nino:8.14, score:65.478
+
+-->batch:1200 loss_var:125.27, loss_nino:9.07, score:63.855
+
+-->batch:1300 loss_var:116.45, loss_nino:9.67, score:62.065
+
+-->batch:1400 loss_var:122.69, loss_nino:9.85, score:64.063
+
+-->batch:1500 loss_var:108.09, loss_nino:7.14, score:66.594
+
+-->batch:1600 loss_var:112.36, loss_nino:8.86, score:62.381
+
+-->epoch0 end... 
+loss_var:181.679 
+loss_nino:23.091 
+loss_com:204.770 
+score: 3.855
+
+sc is increase from -inf to 3.855   
+saving model...
+
+Traceback (most recent call last):
+  File "/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/slurm/../Code/trainer_2.py", line 269, in <module>
+    trainer.train_model(
+  File "/mnt/qb/home/goswami/gkd235/Code_of_3D-Geoformer/slurm/../Code/trainer_2.py", line 240, in train_model
+    torch.save(
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/torch/serialization.py", line 628, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/torch/serialization.py", line 502, in _open_zipfile_writer
+    return container(name_or_buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/qb/work/goswami/gkd235/path/to/conda/envs/deeps2aEnv/lib/python3.12/site-packages/torch/serialization.py", line 473, in __init__
+    super().__init__(torch._C.PyTorchFileWriter(self.name))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Parent directory ./../model does not exist.
+srun: error: galvani-cn218: task 0: Exited with exit code 1
+srun: Terminating StepId=1141697.0

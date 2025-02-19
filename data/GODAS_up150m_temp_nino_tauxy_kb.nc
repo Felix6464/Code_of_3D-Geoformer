@@ -1,0 +1,1 @@
+/mnt/qb/goswami/data/zhou_data/GODAS_up150m_temp_nino_tauxy_kb-1670841778160.nc
