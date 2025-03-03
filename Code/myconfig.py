@@ -49,7 +49,7 @@ mypara.emb_spatial_size = mypara.H0 * mypara.W0
 # 3D-Geoformer
 mypara.model_savepath = "./../model/geoformer/"
 mypara.model_savepath_swin = "./../model/swinlstm/test/"
-mypara.seeds = 420000000
+mypara.seeds = 4200000
 mypara.d_size = 256
 mypara.nheads = 4
 mypara.dim_feedforward = 512
